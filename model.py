@@ -1,6 +1,7 @@
 # 1. Library imports
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
 from pydantic import BaseModel
 import joblib
 
@@ -20,7 +21,7 @@ class IrisModel:
     #    saves the model
     def __init__(self):
         self.df = pd.read_csv('iris.csv')
-        self.model_fname_ = 'iris_model.pkl'
+        self.model_fname_ = 'iris_model.joblib'
         try:
             self.model = joblib.load(self.model_fname_)
         except Exception as _:
